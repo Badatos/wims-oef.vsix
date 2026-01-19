@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>oef</string>
+		<string>oef.dtml</string>
+	</array>
+	<key>name</key>
+	<string>OEF WIMS</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>comment</key>
+			<string>Du moment que la ligne n'est pas détectée comme étant de l'OEF, elle sera colorée par HTML</string>
+			<key>include</key>
+			<string>text.html.basic</string>
+			<key>match</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Commentaires commencant par #...</string>
+			<key>match</key>
+			<string>^\s*(#.*)</string>
+			<key>name</key>
+			<string>comment.line.number-sign</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Commentaires commencant par %%...</string>
+			<key>match</key>
+			<string>^\s*(%%.*)</string>
+			<key>name</key>
+			<string>comment.line.%%</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>comparisons operators..</string>
+			<key>match</key>
+			<string>\b(==|!=|!=| &lt; |&lt;=| &gt; |&gt;=|isin|notin|iswordof|notwordof|isvarof|notvarof|isvariableof|notvariableof|isitemof|notitemof|islineof|notlineof|issamecase|notsamecase|issametext|notsametext|or|and)\b</string>
+			<key>name</key>
+			<string>keyword.operator.compare.wims</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>langage reserved words</string>
+			<key>match</key>
+			<string>\b(to|of|within|in|into|by|internal)\b</string>
+			<key>name</key>
+			<string>constant.language</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>wims functions callable in a wims() instruction</string>
+			<key>match</key>
+			<string>\b(append|nonempty|getopt|replace|embraced|randitem|text|char|charcnt|select|upper|nospace|sort|makelist|for|values|rows2lines|lines2items|items2words|tolower)\b</string>
+			<key>name</key>
+			<string>constant.language.wims</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>functions callable in a pari() instruction</string>
+			<key>match</key>
+			<string>\b(divrem)\b</string>
+			<key>name</key>
+			<string>constant.language.pari</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>déclarations de variables</string>
+			<key>match</key>
+			<string>(\\)(real|complex|text|integer|rational|function|matrix)\b</string>
+			<key>name</key>
+			<string>storage.type</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>types d'éléments reconnus</string>
+			<key>match</key>
+			<string>\b(items|item|words|word|lines|line|rows|row|columns|column|position|asis|htmlmath|texmath)\b</string>
+			<key>name</key>
+			<string>constant.language.types</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Maths functions</string>
+			<key>match</key>
+			<string>\b(evalue|solve|simplify|diff|int|int=|det|abs|sqrt|binomial|ceil|floor|rint|e|erf|erfc|Euler|exp|factorial|Inf|gcd|lcm|%|max|min|lg|lgamma|ln|log2|pow|sgn|PI|sin|acos|sh|Argch)(?=\()</string>
+			<key>name</key>
+			<string>entity.name.function.wims.maths</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Wims random functions</string>
+			<key>match</key>
+			<string>(random|randint|shuffle|randomitem|randomrow)(?=\()</string>
+			<key>name</key>
+			<string>entity.name.function.wims.random</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Wims external functions</string>
+			<key>match</key>
+			<string>(pari|maxima|yacas|wims|draw|slib|teximg)(?=\()</string>
+			<key>name</key>
+			<string>entity.name.function.wims.external</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Wims special vars</string>
+			<key>match</key>
+			<string>\b(reply|choice|step|sc_reply|reply_|help_subject|oef_firstname|oef_lastname|oef_login|oef_now|oef_lang)\b</string>
+			<key>name</key>
+			<string>entity.name.function.wims.special</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>OEF commands, starts at line beginning</string>
+			<key>match</key>
+			<string>^:?\\(title|language|author|email|format|css|keywords|credits|description|observation|precision|range|computeanswer|statement|answer|choice|condition|solution|hint|help|feedback|steps|nextstep|conditions|latex)\b</string>
+			<key>name</key>
+			<string>entity.name.function.wims.oefcommands</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>answer parameters like "{type="</string>
+			<key>match</key>
+			<string>(?&lt;=\{)\s*(type)\s*(?=\=)</string>
+			<key>name</key>
+			<string>entity.name.function.wims.oef.answer</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Record, ":" at line beginning</string>
+			<key>match</key>
+			<string>^\:.*</string>
+			<key>name</key>
+			<string>entity.name.tag.wims.record</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>OEF commands, starting everywhere</string>
+			<key>match</key>
+			<string>\\(embed)\b</string>
+			<key>name</key>
+			<string>entity.name.function.wims.oefcommands</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>OEF special commands</string>
+			<key>match</key>
+			<string>\\special{\s*(expandlines|imagefill|help|tabs2lines|rename|tooltip|codeinput|imageinput|mathmlinput|drawinput|glossary)\b</string>
+			<key>name</key>
+			<string>entity.name.function.wims.oefspecials</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>OEF special commands</string>
+			<key>match</key>
+			<string>\b(algexp|aset|atext|case|checkbox|chembrut|chemclick|chemdraw|chemeq|chessgame|chset|click|clickfill|clicktile|compose|coord|correspond|crossword|default|dragfill|equation|flashcard|formal|fset|function|geogebra|javacurve|jmolclick|jsxgraph|jsxgraphcurve|keyboard|litexp|mark|matrix|menu|multipleclick|nocase|numeric|numexp|puzzle|radio|range|raw|reorder|set|sigunits|symtext|units|vector|wlist)\b</string>
+			<key>name</key>
+			<string>entity.name.function.wims</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Wims functions, starting with "!" (like "!changeto")...</string>
+			<key>match</key>
+			<string>\\(for|if|else)\b</string>
+			<key>name</key>
+			<string>entity.name.function.wimscommand</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Variables like \PARAM1, \TM_SELECTION...</string>
+			<key>match</key>
+			<string>(\\[a-zA-Z0-9_]+)</string>
+			<key>name</key>
+			<string>variable.parameter.wims</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>numerical operators...</string>
+			<key>match</key>
+			<string>(\*|\+| - |\^|:=|=| // | \? )</string>
+			<key>name</key>
+			<string>keyword.operator</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>constantes numériques</string>
+			<key>match</key>
+			<string>\b[0-9]+\b</string>
+			<key>name</key>
+			<string>constant.numeric</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>OEF commands for models, starts at line beginning</string>
+			<key>match</key>
+			<string>^(type|modele_jalon|textarea|asis|random|computed|iEdit)(?=\=)</string>
+			<key>name</key>
+			<string>entity.name.function.wims.oef.models</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Wims known variables like $embraced_randitem, $oef_help...</string>
+			<key>match</key>
+			<string>\$(embraced_randitem|oef_help|math_help)</string>
+			<key>name</key>
+			<string>variable.parameter.wims</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Wims known variables like $embraced_randitem, $oef_help...</string>
+			<key>match</key>
+			<string>\$(embraced_randitem|oef_help|math_help)</string>
+			<key>name</key>
+			<string>variable.parameter.wims</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>\\\(</string>
+			<key>comment</key>
+			<string>Inclusions LaTeX Maths \(\sqrt{\frac{\x}{\y}}\)</string>
+			<key>end</key>
+			<string>\)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>text.tex</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.oef</string>
+	<key>uuid</key>
+	<string>F719B500-F5BD-4DE1-9560-53ACC6848262</string>
+</dict>
+</plist>
