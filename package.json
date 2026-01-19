@@ -1,0 +1,25 @@
+{
+    "name": "oef",
+    "displayName": "WIMS OEF ",
+    "description": "WIMS OEF highlighter",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.61.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "oef",
+            "aliases": ["OEF WIMS", "oef"],
+            "extensions": [".oef",".oef.dtml"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "oef",
+            "scopeName": "source.oef",
+            "path": "./syntaxes/WIMS-OEF.tmLanguage"
+        }]
+    }
+}
